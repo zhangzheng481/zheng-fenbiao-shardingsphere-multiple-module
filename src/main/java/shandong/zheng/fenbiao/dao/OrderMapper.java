@@ -5,7 +5,7 @@ import shandong.zheng.fenbiao.entity.Order;
 import java.util.List;
 
 /**
- * @author zhangzheng74@jd.com
+ * @author zhangzheng481@163.com
  * @since 2025/3/6 21:13
  */
 public interface OrderMapper {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.net.InetAddress;
 
 /**
- * @author zhangzheng74@jd.com
+ * @author zhangzheng481@163.com
  * @since 2025/3/7 15:12
  */
 @Component

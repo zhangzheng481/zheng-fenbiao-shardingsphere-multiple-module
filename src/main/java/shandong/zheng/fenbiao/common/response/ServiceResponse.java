@@ -9,7 +9,7 @@ import shandong.zheng.fenbiao.common.enums.ResponseEnum;
 import java.io.Serializable;
 
 /**
- * @author zhangzheng74@jd.com
+ * @author zhangzheng481@163.com
  * @since 2025/3/7 11:38
  */
 @AllArgsConstructor
