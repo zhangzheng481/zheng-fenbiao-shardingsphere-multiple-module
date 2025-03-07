@@ -1,0 +1,40 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true # 允许Bean覆盖
+  shardingsphere:
+    datasource:
+      names: ds # 数据源名称
+      ds:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://182.160.1.15:23306/song?useSSL=false&serverTimezone=UTC
+        username: root
+        password: 123456
+    props:
+      sql-show: true  # 核心配置：显示逻辑SQL和真实SQL
+      sql-comment-parse-enabled: true  # 可选：解析SQL注释中的分片信息
+      query-with-cipher-column: true   # 可选：若需显示加解密字段的原值
+    rules:
+      sharding:
+        tables:
+          order:
+            actual-data-nodes: ds.order_$->{0..9}
+            table-strategy:
+              standard:
+                sharding-column: user_id
+                sharding-algorithm-name: order-table-algorithm
+        sharding-algorithms:
+          order-table-algorithm:
+            type: MOD
+            props:
+              sharding-count: 10
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org.apache.shardingsphere: DEBUG  # ShardingSphere核心日志
+    org.apache.shardingsphere.sql: TRACE  # 显示SQL细节（如参数）
+    org.mybatis: DEBUG  # MyBatis执行的SQL（原始占位符形式）
