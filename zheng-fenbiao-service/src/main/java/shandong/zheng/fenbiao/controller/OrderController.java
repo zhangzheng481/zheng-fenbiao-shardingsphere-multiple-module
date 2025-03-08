@@ -28,8 +28,8 @@ public class OrderController {
         ServiceResponse<Void> response = new ServiceResponse<>(ResponseEnum.SUCCESS);
         try {
             //调用业务系统
-            orderService.add(order);
-
+//            orderService.add(order);
+            logger.info("add order response:{}", order);
         } catch (Exception e) {
             logger.error("add order err",e);
             response = new ServiceResponse<>(ResponseEnum.FAIL, e);
